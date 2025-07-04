@@ -110,8 +110,7 @@ def analyze_file():
 
 
 
-from flaskvercel import Vercel
-app = Vercel(app)
+
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=5000, debug=True)
 
