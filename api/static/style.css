@@ -1,0 +1,200 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f0f2f5, #e2ebf0);
+    padding: 20px;
+    color: #333;
+}
+
+/* Container */
+.container {
+   
+    margin: auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Headers */
+h1, h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin: 30px 0;
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 130px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ced4da;
+    border-radius: 10px;
+    resize: vertical;
+    transition: 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[name="analyze"] {
+    background-color: #4CAF50;
+}
+button[name="clear_history"] {
+    background-color: #f44336;
+}
+button[name="analyze1"] {
+    background-color: #4207a1;
+}
+button[type="button"] {
+    background-color: #0aa9cc;
+}
+
+button:hover {
+    opacity: 0.95;
+}
+
+/* Result Display */
+.result {
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    border-left: 8px solid;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+/* History */
+.history {
+    margin-top: 30px;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+.history-entry {
+    border-left: 5px solid;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    transition: 0.2s ease;
+}
+
+.history-entry:hover {
+    background-color: #f4f4f4;
+}
+.result, .history-entry {
+    transition: background-color 0.3s ease, border-left 0.3s ease;
+}
+.upload-label {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.upload-note {
+    font-size: 16px;
+    color: #5809f6;
+}
+.upload-note {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/* File Upload Form */
+input[type="file"] {
+    margin: 12px 0;
+    padding: 6px;
+}
+
+form h2 {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.info-section {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.info-section h2, .info-section h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.info-section ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.info-section p, .info-section li {
+    font-size: 16px;
+    color: #444;
+}
+

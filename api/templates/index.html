@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function clearTextAndResult() {
+            document.querySelector("textarea").value = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form method="POST">
+            <textarea name="review" placeholder="Enter your review here...">{{ input_text }}</textarea>
+            <div class="button-group">
+                <button type="submit" name="analyze">Analyze</button>
+                <button type="button" onclick="clearTextAndResult()">Clear Text</button>
+                <button type="submit" name="clear_history" onclick="return confirm('Clear all sentiment history?')">Clear History</button>
+            </div>
+        </form>
+    <hr>
+        <h2>Upload txt, csv, pdf file Sentiment Analysis</h2>
+        <form action="/analyze_file" method="POST" enctype="multipart/form-data">
+            <label class="upload-label">Upload .txt, .csv, or .pdf:</label><br>
+            <input type="file" name="file" required>
+            <button type="submit" name="analyze1">Comment Analyze</button>
+        </form>
+        <small class="upload-note">📝 Result will be downloaded as a summary text file.</small>
+        
+        
+
+        {% if result %}
+        <div class="result" style="color: {{ color }};">
+            Sentiment: {{ result }} {{ emoji }}
+        </div>
+        {% endif %}
+
+        {% if history %}
+        <div class="history">
+            <h3>History</h3>
+            {% for item in history %}
+            <div class="history-entry" style="border-left: 5px solid {{ item.color }}; background-color: {{ item.color }}20;">
+
+                <strong>{{ item.sentiment }} {{ item.emoji }}</strong><br>
+                <em>{{ item.text }}</em>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <hr>
+<div class="info-section">
+    <h2>💡 What Is a Sentiment Analysis App?</h2>
+    <p>
+        A Sentiment Analysis App is a software tool that uses Natural Language Processing (NLP) and Machine Learning (ML) to analyze text and detect emotions — Positive 😊, Negative 😠, or Neutral 😐. It helps businesses and users understand attitudes and opinions in feedback, reviews, or social posts.
+    </p>
+
+    <h3>🛠️ How It Works</h3>
+    <ul>
+        <li><strong>Input:</strong> User types or uploads text.</li>
+        <li><strong>Preprocessing:</strong> Clean and prepare the text.</li>
+        <li><strong>Analysis:</strong> Library like TextBlob calculates polarity score (-1 to +1).</li>
+        <li><strong>Classification:</strong> Based on score, classifies as Positive, Negative, or Neutral.</li>
+        <li><strong>Output:</strong> Sentiment shown with color and emoji.</li>
+    </ul>
+
+    <h3>🌍 Real-World Uses</h3>
+    <ul>
+        <li>🛒 <strong>E-commerce:</strong> Analyze product reviews to improve service.</li>
+        <li>📱 <strong>Social Media Monitoring:</strong> Track public opinion on platforms like Twitter.</li>
+        <li>🧾 <strong>Customer Support:</strong> Prioritize negative tickets for faster response.</li>
+        <li>🎓 <strong>Education:</strong> Analyze student feedback or research surveys.</li>
+        <li>🏛️ <strong>Politics:</strong> Understand public sentiment on policies or leaders.</li>
+        <li>📞 <strong>Call Centers:</strong> Detect dissatisfaction in transcripts.</li>
+        <li>📈 <strong>Finance:</strong> Predict stock trends based on news sentiment.</li>
+    </ul>
+
+    <h3>✅ Real-World Benefits</h3>
+    <ul>
+        <li>✅ Faster decision-making with auto feedback summarization</li>
+        <li>✅ Improved customer experience through emotion detection</li>
+        <li>✅ Early warning for negative trends</li>
+        <li>✅ Real-time brand monitoring</li>
+        <li>✅ Cost savings by reducing manual analysis</li>
+        <li>✅ Better product improvements via review insights</li>
+        <li>✅ Competitive edge from faster responses to trends</li>
+        <li>✅ Scalable for large-scale data processing</li>
+    </ul>
+</div>
+
+</body>
+</html>
+
+
+
+
