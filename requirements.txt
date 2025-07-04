@@ -1,5 +1,4 @@
 flask
 textblob
-flaskvercel
 PyMuPDF
 pandas
